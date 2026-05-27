@@ -11,6 +11,7 @@
      <p>Post Caption is: <%=post.caption %></p>
 
      <img src="<%= post.imageUrl %>" alt="">
+     <p>Post Created At: <%=  new Date(post.createdAt).toLocaleString() %> </p>
      </div>
 </body>
 </html>

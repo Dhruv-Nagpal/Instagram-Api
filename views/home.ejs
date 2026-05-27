@@ -47,6 +47,9 @@
           <button>✏️ Edit</button>
         </a>
 
+        <a href="/posts/<%= post.id %>">
+       <button>👁 Show Post</button>
+        </a>
         
 
          <form action="/posts/<%=post.id%>?_method=DELETE" method="post">

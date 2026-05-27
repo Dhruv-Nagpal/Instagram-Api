@@ -26,11 +26,19 @@ app.get("/posts",(req,res)=>{
     res.render("home",{posts});
 })
 
-//Show each post
+
 
 //Rendering to new Post Page
 app.get("/posts/new",(req,res)=>{
     res.render("new")
+})
+
+
+//Show each post
+app.get("/posts/:id",(req,res)=>{
+    let {id} = req.params;
+    let post = posts.find((p)=> p.id === id);
+    res.render("show",{post});
 })
 
 //Creating new Post
