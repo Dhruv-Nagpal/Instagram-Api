@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram Mini</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+  <h1>Instagram Mini</h1>
+
+
+  <!-- Create Post -->
+  
+
+  <!-- Posts Container -->
+  <div id="posts">
+  
+    <% if(posts.length === 0) { %>
+      <div class="empty-state">
+       <h2>No posts yet 😢</h2>
+        <a href="/posts/new">
+        <button >➕ Create New Post</button>
+        </a>
+         </div>
+
+  
+     <% }else {  %>
+  <% posts.forEach(post => { %>
+
+    <div class="card">
+      <img src="<%= post.imageUrl %>" alt="post image">
+
+      <div class="card-content">
+        <p class="caption"><%= post.caption %></p>
+        <p class="date">
+          <%= new Date(post.createdAt).toDateString() %>
+        </p>
+      </div>
+
+      <div class="card-actions">
+        <a href="/posts/new">
+        <button >➕ New</button>
+        </a>
+
+        <a href="/edit/<%= post.id %>">
+          <button>✏️ Edit</button>
+        </a>
+
+        
+
+         <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+          <button>🗑 Delete</button>
+        </form>
+        </a>
+      </div>
+      
+    </div>
+
+  <% }) %>
+
+ 
+<% } %>
+  
+</body>
+</html>
